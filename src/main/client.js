@@ -1,11 +1,11 @@
 import React from 'react';
-import {render} from 'react-dom';
+import {hydrate} from 'react-dom';
 import {BrowserRouter} from 'react-router-dom';
 import {App} from './app/app';
-import './main.scss';
+import './client.scss';
 
-render((
+hydrate((
   <BrowserRouter>
-    <App />
+    <App/>
   </BrowserRouter>
 ), document.getElementById("root"));
