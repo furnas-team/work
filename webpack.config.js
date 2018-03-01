@@ -1,8 +1,10 @@
 const path = require("path");
+const webpack = require("webpack");
+const nodeExternals = require("webpack-node-externals");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 const clientConfig = {
-  entry: ["./src/main/client.js"],
+  entry: ["./src/main/client/client.js"],
   output: {
     path: path.resolve(__dirname, "public"),
     filename: "work.client.js"
@@ -43,8 +45,9 @@ const clientConfig = {
 };
 
 const serverConfig = {
-  entry: ["./src/main/server.js"],
+  entry: [ "webpack/hot/poll?1000", "./src/main/server/server.js" ],
   target: 'node',
+  externals: [ nodeExternals({ whitelist: [ "webpack/hot/poll?1000" ] }) ],
   output: {
     path: path.resolve(__dirname, "server"),
     filename: "work.server.js"
@@ -76,7 +79,11 @@ const serverConfig = {
         ]
       }
     ]
-  }
+  },
+  plugins: [
+    new webpack.NamedModulesPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+  ]
 };
 
 module.exports = [clientConfig, serverConfig];
