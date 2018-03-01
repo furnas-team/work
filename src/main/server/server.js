@@ -21,7 +21,7 @@ app.get("/", (req, res) => {
     <html>
     <head>
       <meta charSet="utf-8"/>
-      <title>My Page</title>
+      <title>Furnas Work</title>
       <link rel="stylesheet" type="text/css" href="/styles.css"/>
     </head>
     <body>
