@@ -1,7 +1,7 @@
 .professions-landing {
   &__background {
     background-image: linear-gradient(308deg, #f69c7c, #f67c7c 58%, #fa7a7a);
-    height: 100%;
+    min-height: 100%;
     width: 100%
   }
   &__title {

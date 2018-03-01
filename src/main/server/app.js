@@ -21,7 +21,9 @@ app.get("/", (req, res) => {
     <html>
     <head>
       <meta charSet="utf-8"/>
-      <title>Furnas Work</title>
+      <title>Попробуй себя в другой профессии</title>
+      <meta name="description" content="Скучно работать на одной работе. Найди какая профессия тебе по душе." />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
       <link rel="stylesheet" type="text/css" href="/styles.css"/>
     </head>
     <body>
