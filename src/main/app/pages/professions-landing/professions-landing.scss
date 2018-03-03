@@ -1,45 +1,75 @@
+@import "../../common/vars";
+@import "../../common/mixins";
+
 .professions-landing {
   &__background {
-    background-image: linear-gradient(308deg, #f69c7c, #f67c7c 58%, #fa7a7a);
     min-height: 100%;
     width: 100%
   }
   &__title {
-    font-family: HelveticaNeue;
-    font-size: 42px;
-    font-weight: 500;
-    color: #ffffff;
-    padding-top: 26vh;
+    font-family: $font-family;
+    font-size: $font-title-size;
+    color: $font-red;
+    font-weight: $font-title-weight;
+    letter-spacing: $letter-spacing;
+    padding-top: 10vh;
+    @include for-desktop-up {
+      padding-top: 26vh;
+    }
     text-align: center;
   }
   &__profession-list {
-    margin-top: 72px;
+    margin-top: 48px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     padding: 0 15vw;
-    margin-right: -24px;
   }
   &__profession-button {
-    color: #ffffff;
-    padding: 20px 30px;
-    font-family: HelveticaNeue;
-    font-size: 25px;
-    border-radius: 35px;
-    border: solid 1px #ffffff;
-    margin-top: 32px;
-    margin-right: 24px;
+    color: $font-dark-red;
+    padding: 16px 30px;
+    font-family: $font-family;
+    font-size: $font-regular-size;
+    font-weight: $font-regular-weight;
+    letter-spacing: $letter-spacing;
+    border-radius: $border-radius;
+    margin: 12px;
     cursor: pointer;
     transition: 0.2s ease-in;
-    &:hover {
-      color: #f77b7b;
-      background-color: #ffffff;
+    @include for-desktop-up {
+      &:hover {
+      }
     }
     &_chosen {
-      color: #f77b7b;
-      background-color: #ffffff;
+      color: #ffffff;
+      background-color: $background-purple;
+    }
+  }
+
+  &__try-button-row {
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+  }
+
+  &__try-button {
+    border: 2px solid $border-red;
+    border-radius: $border-radius;
+    padding: 16px 30px;
+    color: $font-red;
+    font-family: $font-family;
+    font-size: $font-regular-size;
+    font-weight: $font-regular-weight;
+    cursor: pointer;
+  }
+
+  &__step {
+    opacity: 0;
+    transition: 0.3s ease-in-out;
+    &_active {
+      opacity: 1;
     }
   }
 
