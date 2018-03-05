@@ -1,0 +1,10 @@
+.profession-button-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  &__profession-button {
+    margin: 12px;
+  }
+}

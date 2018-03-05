@@ -1,8 +1,11 @@
 import React from 'react';
 import './professions-landing.scss';
-import {ProfessionButton} from './components/ProfessionButton';
-import {Professions} from './ProfessionsLandingPageModel';
 import classNames from 'classnames';
+import {Title} from '../../components/title/Title';
+import {ProfessionButtonList} from '../../components/profession-button-list/ProfessionButtonList';
+import {Button} from '../../components/button/Button';
+import {TextBlock, TextBlockTextAlign} from '../../components/text-block/TextBlock';
+import {Input} from '../../components/input/Input';
 
 const LandingStep = {
   PROFESSIONS: 'professions',
@@ -13,32 +16,23 @@ const LandingStep = {
 export class ProfessionsLandingPage extends React.Component {
 
   state = {
-    [Professions.DEVELOPER]: false,
-    [Professions.BARISTA]: false,
-    [Professions.FARMER]: false,
-    [Professions.CONFECTIONER]: false,
-    [Professions.DESIGNER]: false,
-    [Professions.TEACHER]: false,
-    [Professions.ARTIST]: false,
-    [Professions.GUIDE]: false,
-    [Professions.LAWYER]: false,
-    [Professions.PHOTOGRAPHER]: false,
-    [Professions.ECONOMIST]: false,
-    [Professions.MANAGER]: false,
-
+    chosenProfessions: [],
     activeStep: LandingStep.PROFESSIONS,
+    email: '',
     stepIsChanging: false,
   };
 
-  handleProfessionButtonChange = (profession) => {
-    this.setState({
-      [profession]: !this.isProfessionChosen(profession)
-    })
-  };
+  handleChosenProfessionsChange = chosenProfessions => this.setState({chosenProfessions});
 
   handleTryClick = () => {
     this.goToEmailStep();
   };
+
+  handleEmailFormSubmit = event => {
+    event.preventDefault();
+  };
+
+  handleEmailChange = event => this.setState({email: event.target.value});
 
   createAnimationTimeoutPromise(timeout) {
     return new Promise(resolve => {
@@ -61,90 +55,50 @@ export class ProfessionsLandingPage extends React.Component {
   }
 
   hasChosenProfessions() {
-    const state = this.state;
-    return state[Professions.DEVELOPER] ||
-      state[Professions.BARISTA] ||
-      state[Professions.FARMER] ||
-      state[Professions.CONFECTIONER] ||
-      state[Professions.DESIGNER] ||
-      state[Professions.TEACHER] ||
-      state[Professions.ARTIST] ||
-      state[Professions.GUIDE] ||
-      state[Professions.LAWYER] ||
-      state[Professions.PHOTOGRAPHER] ||
-      state[Professions.ECONOMIST] ||
-      state[Professions.MANAGER];
+    return this.state.chosenProfessions.length > 0;
   }
 
 
   render() {
-    const {activeStep, stepIsChanging} = this.state;
+    const {activeStep, stepIsChanging, chosenProfessions, email} = this.state;
     return (
-      <div className="professions-landing__background">
+      <div className="professions-landing__layout">
         {activeStep === LandingStep.PROFESSIONS &&
         <div className={classNames('professions-landing__step', {'professions-landing__step_active': !stepIsChanging})}>
-          <div className="professions-landing__title">В каких профессиях вы хотели бы себя попробовать?</div>
-          <div className="professions-landing__profession-list">
-            <ProfessionButton profession={Professions.DEVELOPER}
-                              onChange={this.handleProfessionButtonChange}
-                              chosen={this.isProfessionChosen(Professions.DEVELOPER)}/>
-            <ProfessionButton profession={Professions.BARISTA}
-                              onChange={this.handleProfessionButtonChange}
-                              chosen={this.isProfessionChosen(Professions.BARISTA)}/>
-            <ProfessionButton profession={Professions.FARMER}
-                              onChange={this.handleProfessionButtonChange}
-                              chosen={this.isProfessionChosen(Professions.FARMER)}/>
-            <ProfessionButton profession={Professions.CONFECTIONER}
-                              onChange={this.handleProfessionButtonChange}
-                              chosen={this.isProfessionChosen(Professions.CONFECTIONER)}/>
-            <ProfessionButton profession={Professions.DESIGNER}
-                              onChange={this.handleProfessionButtonChange}
-                              chosen={this.isProfessionChosen(Professions.DESIGNER)}/>
-            <ProfessionButton profession={Professions.TEACHER}
-                              onChange={this.handleProfessionButtonChange}
-                              chosen={this.isProfessionChosen(Professions.TEACHER)}/>
-            <ProfessionButton profession={Professions.ARTIST}
-                              onChange={this.handleProfessionButtonChange}
-                              chosen={this.isProfessionChosen(Professions.ARTIST)}/>
-            <ProfessionButton profession={Professions.GUIDE}
-                              onChange={this.handleProfessionButtonChange}
-                              chosen={this.isProfessionChosen(Professions.GUIDE)}/>
-            <ProfessionButton profession={Professions.LAWYER}
-                              onChange={this.handleProfessionButtonChange}
-                              chosen={this.isProfessionChosen(Professions.LAWYER)}/>
-            <ProfessionButton profession={Professions.PHOTOGRAPHER}
-                              onChange={this.handleProfessionButtonChange}
-                              chosen={this.isProfessionChosen(Professions.PHOTOGRAPHER)}/>
-            <ProfessionButton profession={Professions.ECONOMIST}
-                              onChange={this.handleProfessionButtonChange}
-                              chosen={this.isProfessionChosen(Professions.ECONOMIST)}/>
-            <ProfessionButton profession={Professions.MANAGER}
-                              onChange={this.handleProfessionButtonChange}
-                              chosen={this.isProfessionChosen(Professions.MANAGER)}/>
-          </div>
+          <Title className="professions-landing__title">В каких профессиях вы хотели бы себя попробовать?</Title>
+          <ProfessionButtonList className="professions-landing__profession-list"
+                                chosenProfessions={chosenProfessions}
+                                onChange={this.handleChosenProfessionsChange}>
+          </ProfessionButtonList>
           {this.hasChosenProfessions() &&
           <div className="professions-landing__try-button-row">
-            <button className="professions-landing__try-button"
-                    onClick={this.handleTryClick}>
+            <Button onClick={this.handleTryClick}>
               Попробовать
-            </button>
+            </Button>
           </div>}
         </div>}
         {(activeStep === LandingStep.EMAIL || activeStep === LandingStep.SUCCESS) &&
         <div className={classNames('professions-landing__step', {'professions-landing__step_active': !stepIsChanging})}>
-          <div className="professions-landing__email-title">
-            Мы хотим дать возможность попробовать себя в разных профессиях, чтобы найти то, что вам по душе.
-            Пока мы собираем статистику и договариваемся с компаниями, чтобы можно было осуществить этот проект.
+          <div className="professions-landing__email-text">
+            <TextBlock className="professions-landing__email-title"
+                       textAlign={TextBlockTextAlign.CENTER}>
+              Мы хотим дать возможность попробовать себя в разных профессиях, чтобы найти то, что вам по душе.
+              Пока мы собираем статистику и договариваемся с компаниями, чтобы можно было осуществить этот проект.
+            </TextBlock>
+            <TextBlock className="professions-landing__email-subtitle"
+                       textAlign={TextBlockTextAlign.CENTER}>
+              Если вы хотите получить результат наших исследований и узнать, когда мы будем готовы — оставьте ваш e-mail.
+            </TextBlock>
           </div>
-          <div className="professions-landing__email-subtitle">
-            Если вы хотите получить результат наших исследований и узнать, когда мы будем готовы — оставьте ваш e-mail.
-          </div>
-          <div className="professions-landing__email-form">
-            <input/>
-            <button>
+          <form className="professions-landing__email-form" onSubmit={this.handleEmailFormSubmit}>
+            <Input value={email}
+                   className="professions-landing__email-input"
+                   placeholder="Введите email"
+                   onChange={this.handleEmailChange}/>
+            <Button className="professions-landing__save-email-button">
               Отправить
-            </button>
-          </div>
+            </Button>
+          </form>
         </div>}
       </div>
     );

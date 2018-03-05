@@ -1,0 +1,31 @@
+@import "../../common/vars";
+@import "../../common/mixins";
+
+.profession-button {
+  color: $font-dark-red;
+  padding: 16px 30px;
+  font-family: $font-family;
+  font-size: $font-regular-size;
+  font-weight: $font-regular-weight;
+  border-radius: $border-radius;
+  border: 1px solid $border-color-gray;
+  cursor: pointer;
+  transition: 0.1s ease-in;
+  @include for-phone-only {
+    font-size: $font-regular-mobile-size;
+  }
+  @include for-desktop-up {
+    &:hover {
+      border-color: $border-color-gray-hover;
+      color: $font-dark-red-hover;
+    }
+  }
+  &_chosen {
+    color: #ffffff;
+    background-color: $background-purple;
+    &:hover {
+      color: #ffffff;
+      background-color: $background-purple;
+    }
+  }
+}

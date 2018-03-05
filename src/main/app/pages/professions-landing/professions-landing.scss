@@ -2,61 +2,24 @@
 @import "../../common/mixins";
 
 .professions-landing {
-  &__background {
+  &__layout {
     min-height: 100%;
-    width: 100%
+    width: 100%;
   }
   &__title {
-    font-family: $font-family;
-    font-size: $font-title-size;
-    color: $font-red;
-    font-weight: $font-light-weight;
-    letter-spacing: $letter-spacing;
-    padding-top: 254px;
-    text-align: center;
+    margin-top: 254px;
     @include for-phone-only {
-      padding: 32px 32px 0;
-      font-size: $font-title-mobile-size;
+      margin: 32px 32px 0;
     }
     @include for-big-desktop-up {
-      padding-top: 282px;
+      margin-top: 282px;
     }
   }
   &__profession-list {
     margin-top: 36px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
     max-width: 715px;
     @include for-phone-only {
       margin-top: 12px;
-    }
-  }
-  &__profession-button {
-    color: $font-dark-red;
-    padding: 16px 30px;
-    font-family: $font-family;
-    font-size: $font-regular-size;
-    font-weight: $font-regular-weight;
-    border-radius: $border-radius;
-    border: 1px solid $border-color-gray;
-    margin: 12px;
-    cursor: pointer;
-    transition: 0.2s ease-in;
-    @include for-phone-only {
-      margin-top: 12px;
-      font-size: $font-regular-mobile-size;
-    }
-    @include for-desktop-up {
-      &:hover {
-        border-color: $border-color-gray-hover;
-      }
-    }
-    &_chosen {
-      color: #ffffff;
-      background-color: $background-purple;
     }
   }
 
@@ -64,18 +27,6 @@
     display: flex;
     justify-content: center;
     margin-top: 24px;
-  }
-
-  &__try-button {
-    border: 2px solid $border-color-red;
-    border-radius: $border-radius;
-    padding: 16px 30px;
-    color: $font-red;
-    font-family: $font-family;
-    font-size: $font-regular-size;
-    font-weight: $font-regular-weight;
-    cursor: pointer;
-    background-color: $background-white;
   }
 
   &__step {
@@ -90,4 +41,48 @@
     }
   }
 
+  &__email-text {
+    margin-top: 254px;
+    margin-bottom: 48px;
+    @include for-phone-only {
+      margin: 32px 32px 48px 32px;
+    }
+    @include for-big-desktop-up {
+      margin-top: 282px;
+    }
+  }
+
+  &__email-title {
+    max-width: 600px;
+  }
+
+  &__email-subtitle {
+    margin-top: 24px;
+    max-width: 600px;
+  }
+
+  &__email-form {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 536px;
+    @include for-phone-only {
+      flex-direction: column;
+      width: calc(100% - 64px);
+    }
+  }
+
+  &__save-email-button {
+    margin-left: 32px;
+    @include for-phone-only {
+      margin-left: 0;
+    }
+  }
+
+  &__email-input {
+    flex-grow: 1;
+    @include for-phone-only {
+      margin-bottom: 24px;
+    }
+  }
 }

@@ -1,0 +1,19 @@
+@import "../../common/vars";
+@import "../../common/mixins";
+
+.text-block {
+  font-family: $font-family;
+  font-size: $font-text-size;
+  color: $font-black;
+  font-weight: $font-light-weight;
+  letter-spacing: $letter-spacing;
+  &_text-align-center {
+    text-align: center;
+  }
+  &_text-align-left {
+    text-align: left;
+  }
+  &_text-align-right {
+    text-align: right;
+  }
+}
