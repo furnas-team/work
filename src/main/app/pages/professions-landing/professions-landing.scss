@@ -5,6 +5,15 @@
   &__layout {
     min-height: 100%;
     width: 100%;
+    background: url('./images/calibri.png') 100% 0 no-repeat,
+    url('./images/dotes-left.svg') no-repeat,
+    url('./images/dotes-bottom.svg') 100% 100% no-repeat;
+
+    @include for-phone-only {
+      background: url('./images/calibri-mob.png') 100% 0 no-repeat,
+      url('./images/dotes-left.svg') -150px 0 no-repeat,
+      url('./images/dotes-bottom.svg') calc(100% + 100px) calc(100% + 50px) no-repeat;
+    }
   }
   &__title {
     margin-top: 254px;
@@ -20,6 +29,7 @@
     max-width: 715px;
     @include for-phone-only {
       margin-top: 12px;
+      max-width: 290px;
     }
   }
 
@@ -45,7 +55,7 @@
     margin-top: 254px;
     margin-bottom: 48px;
     @include for-phone-only {
-      margin: 32px 32px 48px 32px;
+      margin: 114px 32px 32px 32px;
     }
     @include for-big-desktop-up {
       margin-top: 282px;
@@ -82,7 +92,7 @@
   &__email-input {
     flex-grow: 1;
     @include for-phone-only {
-      margin-bottom: 24px;
+      margin-bottom: 48px;
     }
   }
 }

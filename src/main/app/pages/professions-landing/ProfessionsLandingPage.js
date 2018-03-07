@@ -19,17 +19,35 @@ export class ProfessionsLandingPage extends React.Component {
     chosenProfessions: [],
     activeStep: LandingStep.PROFESSIONS,
     email: '',
+    emailSent: false,
     stepIsChanging: false,
   };
 
   handleChosenProfessionsChange = chosenProfessions => this.setState({chosenProfessions});
 
   handleTryClick = () => {
+    window.mixpanel.track(
+      "Want try professions",
+      {professions: this.state.chosenProfessions.join()}
+    );
     this.goToEmailStep();
   };
 
   handleEmailFormSubmit = event => {
     event.preventDefault();
+    if (!this.state.emailSent) {
+      window.mixpanel.track(
+        "Provides email",
+        {email: this.state.email}
+      );
+      window.mixpanel.identify(this.state.email);
+      window.mixpanel.alias(this.state.email);
+      window.mixpanel.people.set({
+        "$created": (new Date()).toString(),
+        "$email": this.state.email
+      });
+      this.setState({emailSent: true});
+    }
   };
 
   handleEmailChange = event => this.setState({email: event.target.value});

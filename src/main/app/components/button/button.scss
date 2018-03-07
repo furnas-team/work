@@ -19,4 +19,10 @@
       border-color: $border-color-red-hover;
     }
   }
+
+  @include for-phone-only {
+    font-size: $font-regular-mobile-size;
+    padding: 8px 16px;
+  }
+
 }

@@ -3,10 +3,13 @@
 
 .text-block {
   font-family: $font-family;
-  font-size: $font-text-size;
+  font-size: $font-regular-size;
   color: $font-black;
   font-weight: $font-light-weight;
   letter-spacing: $letter-spacing;
+  @include for-phone-only {
+    font-size: $font-regular-mobile-size;
+  }
   &_text-align-center {
     text-align: center;
   }
