@@ -8,7 +8,9 @@
   font-weight: $font-light-weight;
   letter-spacing: $letter-spacing;
   text-align: center;
+  line-height: $font-line-height;
   @include for-phone-only {
     font-size: $font-title-mobile-size;
+    line-height: $font-line-height-mobile;
   }
 }

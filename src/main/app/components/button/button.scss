@@ -15,8 +15,9 @@
   -webkit-tap-highlight-color: transparent;
 
   @include for-desktop-up {
+    opacity: 0.8;
     &:hover {
-      border-color: $border-color-red-hover;
+      opacity: 1;
     }
   }
 

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="580px" height="580px" viewBox="0 0 580 580" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49 (51002) - http://www.bohemiancoding.com/sketch -->
+    <title>Tablet Portrait</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Tablet-Portrait" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <circle id="Oval" stroke="#FF4F4F" stroke-width="14" cx="290" cy="290" r="270"></circle>
+        <g id="facebook" transform="translate(216.000000, 146.000000)" fill="#FF4F4F" fill-rule="nonzero">
+            <path d="M97.172,288.861 L35.012,288.861 L35.012,159.347 L0.769,159.347 L0.769,99.867 L35.011,99.867 L35.011,66.467 C35.011,35.804 54.195,0 108.284,0 C127.352,0 141.35,1.787 141.935,1.864 L147.674,2.61 L146.292,58.273 L139.968,58.215 C139.955,58.215 125.745,58.08 110.244,58.08 C98.708,58.08 97.178,60.927 97.178,72.251 L97.178,99.88 L148.091,99.88 L145.27,159.36 L97.184,159.36 L97.184,288.861 L97.172,288.861 Z M47.858,276.007 L84.311,276.007 L84.311,146.5 L132.988,146.5 L134.595,112.721 L84.311,112.721 L84.311,72.238 C84.311,58.87 87.389,45.213 110.23,45.213 C119.408,45.213 128.129,45.258 133.739,45.303 L134.517,14.011 C128.842,13.503 119.401,12.854 108.27,12.854 C63.726,12.854 47.851,40.547 47.851,66.467 L47.851,112.721 L13.61,112.721 L13.61,146.5 L47.852,146.5 L47.852,276.007 L47.858,276.007 Z" id="Shape"></path>
+        </g>
+    </g>
+</svg>

@@ -5,38 +5,47 @@
   &__layout {
     min-height: 100%;
     width: 100%;
-    background: url('./images/calibri.png') 100% 0 no-repeat,
+    background: url('images/colibri.png') calc(100% + 25px) -25px no-repeat,
     url('./images/dotes-left.svg') no-repeat,
-    url('./images/dotes-bottom.svg') 100% 100% no-repeat;
+    url('./images/dotes-bottom.svg') 0 calc(100% + 50px) no-repeat;
 
     @include for-phone-only {
-      background: url('./images/calibri-mob.png') 100% 0 no-repeat,
-      url('./images/dotes-left.svg') -150px 0 no-repeat,
-      url('./images/dotes-bottom.svg') calc(100% + 100px) calc(100% + 50px) no-repeat;
+      background: url('./images/dotes-left-mobile.svg') no-repeat,
+      url('./images/dotes-bottom-mobile.svg') 0 100% no-repeat;
     }
   }
   &__title {
-    margin-top: 254px;
+    margin-top: 180px;
     @include for-phone-only {
-      margin: 32px 32px 0;
+      margin: 32px 32px 16px;
     }
     @include for-big-desktop-up {
-      margin-top: 282px;
+      margin-top: 180px;
     }
   }
+
+  &__title-break {
+    @include for-desktop-up {
+      display: none;
+    }
+  }
+
   &__profession-list {
     margin-top: 36px;
     max-width: 715px;
     @include for-phone-only {
       margin-top: 12px;
-      max-width: 290px;
+      max-width: 305px;
     }
   }
 
   &__try-button-row {
     display: flex;
     justify-content: center;
-    margin-top: 24px;
+    margin-top: 44px;
+    @include for-phone-only {
+      margin-top: 24px;
+    }
   }
 
   &__step {
@@ -52,13 +61,13 @@
   }
 
   &__email-text {
-    margin-top: 254px;
+    margin-top: 180px;
     margin-bottom: 48px;
     @include for-phone-only {
-      margin: 114px 32px 32px 32px;
+      margin: 40px 24px 16px 24px;
     }
     @include for-big-desktop-up {
-      margin-top: 282px;
+      margin-top: 180px;
     }
   }
 
@@ -67,7 +76,7 @@
   }
 
   &__email-subtitle {
-    margin-top: 24px;
+    margin-top: 16px;
     max-width: 600px;
   }
 
@@ -78,7 +87,8 @@
     max-width: 536px;
     @include for-phone-only {
       flex-direction: column;
-      width: calc(100% - 64px);
+      justify-content: center;
+      align-items: center;
     }
   }
 
@@ -92,7 +102,43 @@
   &__email-input {
     flex-grow: 1;
     @include for-phone-only {
-      margin-bottom: 48px;
+      width: 260px;
+      margin-bottom: 24px;
     }
+  }
+
+  &__air-balloon {
+    background: url('./images/air-balloon.png');
+    height: 242px;
+    width: 177px;
+    margin-bottom: 40px;
+    display: none;
+    @include for-phone-only {
+      display: block;
+      margin-top: 40px
+    }
+  }
+
+  &__success-text {
+    margin-top: 180px;
+    @include for-phone-only {
+      margin-top: 0;
+      max-width: 305px;
+    }
+  }
+
+  &__success-title {
+    margin-bottom: 8px;
+  }
+
+  &__success-subtitle {
+    margin-bottom: 24px;
+  }
+
+  &__sharing {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80px;
   }
 }

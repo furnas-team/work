@@ -2,23 +2,29 @@
 @import "../../common/mixins";
 
 .profession-button {
-  color: $font-dark-red;
+  color: $font-purple;
   padding: 16px 30px;
   font-family: $font-family;
   font-size: $font-regular-size;
   font-weight: $font-regular-weight;
   border-radius: $border-radius;
-  border: 1px solid $border-color-gray;
+  border: 1px solid $border-color-purple;
   cursor: pointer;
   transition: 0.1s ease-in;
+  background-color: $background-white;
   @include for-phone-only {
     font-size: $font-regular-mobile-size;
-    padding: 8px 16px;
+    padding: 0;
+    width: 134px;
+    height: 34px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   @include for-desktop-up {
     &:hover {
-      border-color: $border-color-gray-hover;
-      color: $font-dark-red-hover;
+      border-color: $border-color-purple-hover;
+      color: $font-purple-hover;
     }
   }
   &_chosen {

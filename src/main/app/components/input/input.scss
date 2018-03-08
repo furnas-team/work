@@ -5,10 +5,10 @@
   font-family: $font-family;
   font-size: $font-input-size;
   font-weight: $font-light-weight;
-  color: $font-dark-red;
+  color: $font-input-color;
   padding: 16px;
   letter-spacing: $letter-spacing;
-  border: 0 solid;
+  border: 0 solid $border-input-color;
   border-bottom-width: 1px;
   outline: none;
 }

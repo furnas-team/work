@@ -4,6 +4,8 @@ import {BrowserRouter} from 'react-router-dom';
 import {App} from '../app/app';
 import './client.scss';
 import mixpanel from 'mixpanel-browser';
+import '../server/images/share-fb.png';
+import '../server/images/share-vk.png';
 
 //mixpanel
 window.mixpanel = mixpanel;

@@ -1,3 +1,6 @@
+@import "../../common/vars";
+@import "../../common/mixins";
+
 .profession-button-list {
   display: flex;
   flex-direction: row;
@@ -6,5 +9,10 @@
   justify-content: center;
   &__profession-button {
     margin: 12px;
+
+    @include for-phone-only {
+      margin: 8px;
+    }
+
   }
 }

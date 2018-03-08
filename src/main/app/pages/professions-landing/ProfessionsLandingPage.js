@@ -6,6 +6,8 @@ import {ProfessionButtonList} from '../../components/profession-button-list/Prof
 import {Button} from '../../components/button/Button';
 import {TextBlock, TextBlockTextAlign} from '../../components/text-block/TextBlock';
 import {Input} from '../../components/input/Input';
+import {ShareFB} from '../../components/share-fb/ShareFB';
+import {ShareVK} from '../../components/share-vk/ShareVK';
 
 const LandingStep = {
   PROFESSIONS: 'professions',
@@ -47,6 +49,7 @@ export class ProfessionsLandingPage extends React.Component {
         "$email": this.state.email
       });
       this.setState({emailSent: true});
+      this.goToSuccessStep();
     }
   };
 
@@ -68,6 +71,14 @@ export class ProfessionsLandingPage extends React.Component {
     this.setState({stepIsChanging: false});
   }
 
+  async goToSuccessStep() {
+    this.setState({stepIsChanging: true});
+    await this.createAnimationTimeoutPromise();
+    this.setState({activeStep: LandingStep.SUCCESS});
+    await this.createAnimationTimeoutPromise(10);
+    this.setState({stepIsChanging: false});
+  }
+
   isProfessionChosen(profession) {
     return this.state[profession];
   }
@@ -83,7 +94,7 @@ export class ProfessionsLandingPage extends React.Component {
       <div className="professions-landing__layout">
         {activeStep === LandingStep.PROFESSIONS &&
         <div className={classNames('professions-landing__step', {'professions-landing__step_active': !stepIsChanging})}>
-          <Title className="professions-landing__title">В каких профессиях вы хотели бы себя попробовать?</Title>
+          <Title className="professions-landing__title">В каких профессиях <br className="professions-landing__title-break"/> вы хотели бы себя попробовать?</Title>
           <ProfessionButtonList className="professions-landing__profession-list"
                                 chosenProfessions={chosenProfessions}
                                 onChange={this.handleChosenProfessionsChange}>
@@ -95,7 +106,7 @@ export class ProfessionsLandingPage extends React.Component {
             </Button>
           </div>}
         </div>}
-        {(activeStep === LandingStep.EMAIL || activeStep === LandingStep.SUCCESS) &&
+        {activeStep === LandingStep.EMAIL &&
         <div className={classNames('professions-landing__step', {'professions-landing__step_active': !stepIsChanging})}>
           <div className="professions-landing__email-text">
             <TextBlock className="professions-landing__email-title"
@@ -117,6 +128,25 @@ export class ProfessionsLandingPage extends React.Component {
               Отправить
             </Button>
           </form>
+        </div>}
+        {activeStep === LandingStep.SUCCESS &&
+        <div className={classNames('professions-landing__step', {'professions-landing__step_active': !stepIsChanging})}>
+          <div className="professions-landing__air-balloon">
+          </div>
+          <div className="professions-landing__success-text">
+            <TextBlock className="professions-landing__success-title"
+                       textAlign={TextBlockTextAlign.CENTER}>
+              Ваш email сохранен.
+            </TextBlock>
+            <TextBlock className="professions-landing__success-subtitle"
+                       textAlign={TextBlockTextAlign.CENTER}>
+              Если вам нравится наша идея — поделитесь в соц сетях.
+            </TextBlock>
+          </div>
+          <div className="professions-landing__sharing">
+            <ShareFB/>
+            <ShareVK/>
+          </div>
         </div>}
       </div>
     );
