@@ -8,8 +8,10 @@ import mixpanel from 'mixpanel-browser';
 window.mixpanel = mixpanel;
 mixpanel.init('89c5c0bb6af5172d87b01e9e06839b2e');
 
+window.yaCounter = new Ya.Metrika({id: 47973731});
+
 hydrate((
-  <BrowserRouter>
-    <App/>
-  </BrowserRouter>
+    <BrowserRouter>
+        <App/>
+    </BrowserRouter>
 ), document.getElementById("root"));

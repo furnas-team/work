@@ -25,6 +25,7 @@ app.get("/", (req, res) => {
       <meta name="description" content="Скучно работать на одной работе. Найди какая профессия тебе по душе." />
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
       <link rel="stylesheet" type="text/css" href="/styles.css"/>
+      <script src="//mc.yandex.ru/metrika/watch.js" type="text/javascript"></script>
     </head>
     <body>
     <div id="root" dangerouslySetInnerHTML={ {__html: appString} }>
