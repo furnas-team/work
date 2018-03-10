@@ -42,11 +42,11 @@ export class ProfessionsLandingPage extends React.Component {
         "Provides email",
         {email: this.state.email}
       );
-      window.mixpanel.identify(this.state.email);
       window.mixpanel.alias(this.state.email);
       window.mixpanel.people.set({
         "$created": (new Date()).toString(),
-        "$email": this.state.email
+        "$email": this.state.email,
+        "professions": this.state.chosenProfessions.join()
       });
       this.setState({emailSent: true});
       this.goToSuccessStep();
